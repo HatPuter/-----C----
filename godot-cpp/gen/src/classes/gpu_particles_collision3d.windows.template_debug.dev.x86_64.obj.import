@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqsn0jc3tgt15"
+valid=false
+
+[deps]
+
+source_file="res://godot-cpp/gen/src/classes/gpu_particles_collision3d.windows.template_debug.dev.x86_64.obj"
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
