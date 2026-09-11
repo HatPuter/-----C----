@@ -1,6 +1,10 @@
 #include "../include/producer_showcase.h"
+
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/classes/label.hpp>
+#include <godot_cpp/classes/tween.hpp>
+#include <godot_cpp/classes/property_tweener.hpp>
+#include <godot_cpp/classes/scene_tree.hpp>
 
 using namespace godot;
 
@@ -14,27 +18,29 @@ void ProducerShowcase::_bind_methods() {
 }
 
 void ProducerShowcase::_ready() {
-    // 获取子节点 Label
-    Label* label = get_node<Label>("Label");
-    
-    // 修改文字
-    label->set_text("Hello, 福瑞！");
-    
-    // 修改位置
-    label->set_position(Vector2(100, 200));
+    // 获取节点
+    Label* content = Object::cast_to<Label>(get_node_or_null("Content"));
 
-    // 修改颜色
-    label->add_theme_color_override("font_color", Color(1, 0, 0));  // 红色
+    // 设置颜色透明度
+    Color colorTransparency = content->get_modulate();
+    colorTransparency.a = 0.0;
+    content->set_modulate(colorTransparency);
+    
+    // 初始化动画
+    Ref<Tween> tween = create_tween();
+
+    // 渐显
+    tween->tween_property(content, "modulate:a", 1.0, 0.6);
+    // 等待
+    tween->tween_property(content, "modulate:a", 1.0, 1.6);
+    // 渐隐
+    tween->tween_property(content, "modulate:a", 0.0, 0.6);
+    // 等待
+    tween->tween_property(content, "modulate:a", 0.0, 1.6);
+
+    // 切换场景
+    get_tree()->change_scene_to_file("res://scenes/main_menu.tscn");
 }
 
 void ProducerShowcase::_process(double delta) {
-    Label* label = get_node<Label>("Label");
-    
-    // 每帧旋转
-    label->set_rotation(label->get_rotation() + delta);
-    
-    // 每帧移动
-    Vector2 pos = label->get_position();
-    pos.x += 50 * delta;
-    label->set_position(pos);
 }

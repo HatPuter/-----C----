@@ -1,5 +1,8 @@
 ﻿#include "../include/configuration.h"
 #include "../include/producer_showcase.h"
+#include "../include/main_menu.h"
+
+#include <godot_cpp/core/class_db.hpp>
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
@@ -14,6 +17,7 @@ void initialize_module(ModuleInitializationLevel p_level) {
 
     // 注册类
     GDREGISTER_CLASS(ProducerShowcase);
+    GDREGISTER_CLASS(MainMenu);
 }
 
 // 取消初始化模块

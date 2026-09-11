@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://coua35tjw0xla"]
+
+[ext_resource type="FontFile" uid="uid://b5ff3guhep8ky" path="res://resources/fonts/Regular.otf" id="1_16mv4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ppx5i"]
+font = ExtResource("1_16mv4")
+font_size = 38
+
+[node name="ProducerShowcase" type="ProducerShowcase"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Content" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 367.0
+offset_top = 296.0
+offset_right = 785.0
+offset_bottom = 352.0
+text = "来自几只福瑞开发的游戏"
+label_settings = SubResource("LabelSettings_ppx5i")
