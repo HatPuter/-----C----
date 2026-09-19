@@ -5,6 +5,7 @@
 #include <godot_cpp/classes/tween.hpp>
 #include <godot_cpp/classes/property_tweener.hpp>
 #include <godot_cpp/classes/scene_tree.hpp>
+#include <godot_cpp/classes/interval_tweener.hpp>
 
 using namespace godot;
 
@@ -15,6 +16,7 @@ ProducerShowcase::~ProducerShowcase() {
 }
 
 void ProducerShowcase::_bind_methods() {
+    ClassDB::bind_method(D_METHOD("on_tween_finished"), &ProducerShowcase::on_tween_finished);
 }
 
 void ProducerShowcase::_ready() {
@@ -30,17 +32,21 @@ void ProducerShowcase::_ready() {
     Ref<Tween> tween = create_tween();
 
     // 渐显
-    tween->tween_property(content, "modulate:a", 1.0, 0.6);
+    tween->tween_property(content, "modulate:a", 1.0, 0.4);
     // 等待
-    tween->tween_property(content, "modulate:a", 1.0, 1.6);
+    tween->tween_interval(1.6);
     // 渐隐
-    tween->tween_property(content, "modulate:a", 0.0, 0.6);
+    tween->tween_property(content, "modulate:a", 0.0, 0.4);
     // 等待
-    tween->tween_property(content, "modulate:a", 0.0, 1.6);
+    tween->tween_interval(1.6);
 
     // 切换场景
-    get_tree()->change_scene_to_file("res://scenes/main_menu.tscn");
+    tween->connect("finished", Callable(this, StringName("on_tween_finished")));
 }
 
 void ProducerShowcase::_process(double delta) {
+}
+
+void ProducerShowcase::on_tween_finished() {
+    get_tree()->change_scene_to_file("res://scenes/main_menu.tscn");
 }

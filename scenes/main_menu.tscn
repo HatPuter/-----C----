@@ -1,8 +1,74 @@
-[gd_scene format=3 uid="uid://tdwy7vauhv4f"]
+[gd_scene load_steps=7 format=3 uid="uid://tdwy7vauhv4f"]
+
+[ext_resource type="FontFile" uid="uid://b5ff3guhep8ky" path="res://resources/fonts/Regular.otf" id="1_dbibq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jurj5"]
+font = ExtResource("1_dbibq")
+font_size = 46
+
+[sub_resource type="LabelSettings" id="LabelSettings_3b6qf"]
+font = ExtResource("1_dbibq")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_ap2mu"]
+font = ExtResource("1_dbibq")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_lk8ll"]
+font = ExtResource("1_dbibq")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_lth8s"]
+font = ExtResource("1_dbibq")
+font_size = 24
 
 [node name="MainMenu" type="MainMenu"]
+
+[node name="FullscreenManager" type="FullscreenManager" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 75.0
+offset_top = 82.0
+offset_right = 477.0
+offset_bottom = 150.0
+text = "几只福瑞的C++教学"
+label_settings = SubResource("LabelSettings_jurj5")
+
+[node name="StartGame" type="Label" parent="."]
+offset_left = 75.0
+offset_top = 396.0
+offset_right = 171.0
+offset_bottom = 431.0
+text = "开始游戏"
+label_settings = SubResource("LabelSettings_3b6qf")
+
+[node name="ContinueGame" type="Label" parent="."]
+offset_left = 75.0
+offset_top = 441.0
+offset_right = 171.0
+offset_bottom = 476.0
+text = "继续游戏"
+label_settings = SubResource("LabelSettings_ap2mu")
+
+[node name="Setting" type="Label" parent="."]
+offset_left = 75.0
+offset_top = 486.0
+offset_right = 123.0
+offset_bottom = 521.0
+text = "设置
+"
+label_settings = SubResource("LabelSettings_lk8ll")
+
+[node name="Exit" type="Label" parent="."]
+offset_left = 75.0
+offset_top = 531.0
+offset_right = 123.0
+offset_bottom = 566.0
+text = "退出
+"
+label_settings = SubResource("LabelSettings_lth8s")

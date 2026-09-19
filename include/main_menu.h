@@ -9,6 +9,9 @@ using namespace godot;
 class MainMenu : public Node2D {
     GDCLASS(MainMenu, Node2D);
 
+public:
+    void on_tween_finished();
+
 protected:
     static void _bind_methods();
 

@@ -1,5 +1,6 @@
 ﻿#include "../include/configuration.h"
 #include "../include/producer_showcase.h"
+#include "../include/fullscreen_manager.h"
 #include "../include/main_menu.h"
 
 #include <godot_cpp/core/class_db.hpp>
@@ -16,6 +17,7 @@ void initialize_module(ModuleInitializationLevel p_level) {
     }
 
     // 注册类
+    GDREGISTER_CLASS(FullscreenManager);
     GDREGISTER_CLASS(ProducerShowcase);
     GDREGISTER_CLASS(MainMenu);
 }
