@@ -16,7 +16,7 @@ ProducerShowcase::~ProducerShowcase() {
 }
 
 void ProducerShowcase::_bind_methods() {
-    ClassDB::bind_method(D_METHOD("on_tween_finished"), &ProducerShowcase::on_tween_finished);
+    ClassDB::bind_method(D_METHOD("scene_finished"), &ProducerShowcase::scene_finished);
 }
 
 void ProducerShowcase::_ready() {
@@ -41,12 +41,12 @@ void ProducerShowcase::_ready() {
     tween->tween_interval(1.6);
 
     // 切换场景
-    tween->connect("finished", Callable(this, StringName("on_tween_finished")));
+    tween->connect("finished", Callable(this, StringName("scene_finished")));
 }
 
 void ProducerShowcase::_process(double delta) {
 }
 
-void ProducerShowcase::on_tween_finished() {
+void ProducerShowcase::scene_finished() {
     get_tree()->change_scene_to_file("res://scenes/main_menu.tscn");
 }

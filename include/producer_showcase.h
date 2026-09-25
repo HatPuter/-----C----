@@ -10,7 +10,7 @@ class ProducerShowcase : public Node2D {
     GDCLASS(ProducerShowcase, Node2D);
 
 public:
-    void on_tween_finished();
+    void scene_finished();
 
 protected:
     static void _bind_methods();

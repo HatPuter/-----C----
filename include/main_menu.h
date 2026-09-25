@@ -10,7 +10,7 @@ class MainMenu : public Node2D {
     GDCLASS(MainMenu, Node2D);
 
 public:
-    void on_tween_finished();
+    void scene_finished();
 
 protected:
     static void _bind_methods();
@@ -21,6 +21,9 @@ public:
 
     void _ready() override;
     void _process(double delta) override;
+
+    void _on_label_mouse_entered(Node *pNode);
+    void _on_label_mouse_exited(Node *pNode);
 };
 
 #endif // MAIN_MENU_H
